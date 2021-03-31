@@ -23,6 +23,9 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
+# Workflow name
+name: 'Chromatic PR'
+
 # Event for the workflow
 on: pull_request
 
