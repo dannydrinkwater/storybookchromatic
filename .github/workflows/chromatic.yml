@@ -1,37 +1,15 @@
 # Workflow name
 name: 'Chromatic'
 
-# # Event for the workflow
-# on: push
-
-# # List of jobs
-# jobs:
-#   chromatic-deployment:
-#     # Operating System
-#     runs-on: ubuntu-latest
-#     # Job steps
-#     steps:
-#       - uses: actions/checkout@v1
-#       - name: Install dependencies
-#         run: yarn
-#         # 👇 Adds Chromatic as a step in the workflow
-#       - name: Publish to Chromatic
-#         uses: chromaui/action@v1
-#         # Chromatic GitHub Action options
-#         with:
-#           token: ${{ secrets.GITHUB_TOKEN }}
-#           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-#           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-
-# # Workflow name
-# name: 'Chromatic PR'
-
 # Event for the workflow
-on: pull_request
+on: push
 
+# List of jobs
 jobs:
   chromatic-deployment:
+    # Operating System
     runs-on: ubuntu-latest
+    # Job steps
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
@@ -39,7 +17,7 @@ jobs:
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
         uses: chromaui/action@v1
-        # Options required to the GitHub chromatic action
+        # Chromatic GitHub Action options
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
